@@ -14,18 +14,6 @@ A simple Go-based website monitoring tool that checks a website URL and sends an
 
 ---
 
-## 📁 Project Structure
-
-Website_Down_Checker/
-│── main.go
-│── .env
-│── files/
-│ ├── status.go
-│ ├── sendMail.go
-│ ├── jsonData.go
-│ ├── data.json
-
----
 
 ## ⚙️ How It Works
 
@@ -78,18 +66,18 @@ Create a .env file in project root:
 
 📌 Website_Down_Checker/.env
 
-# Website URL to monitor
+### Website URL to monitor
 URL=https://example.com
 
-# SMTP Server Details
+### SMTP Server Details
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 
-# Email Credentials
+### Email Credentials
 SMTP_FROM=your-email@gmail.com
 SMTP_PASSWORD=your-app-password
 
-# Receiver Email
+### Receiver Email
 SMTP_TO=receiver-email@gmail.com
 ⚠️ Gmail SMTP Note
 If you're using Gmail:
@@ -128,8 +116,9 @@ Add:
 ## 📌 Future Improvements
 Working on it...
 
+```bash
 Author
 Aniket Bhardwaj
 Project: Bat Watch
-
+```
 ---
