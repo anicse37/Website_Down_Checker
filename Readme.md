@@ -34,15 +34,15 @@ A simple Go-based website monitoring tool that checks a website URL and sends an
 
 - Saves current status back into data.json
 
-### 3. files/sendMail.go
+### 3. `files/sendMail.go`
 - Reads SMTP settings from .env
 
 - Sends email alert using SMTP
 
 - Uses HTML email (Netflix-style theme)
 
-### 4. files/jsonData.go
-- Updates data.json with:
+### 4. `files/jsonData.go`
+Updates data.json with:
 
 - LastStatus
 
