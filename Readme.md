@@ -1,4 +1,4 @@
- Website Down Checker (Bat Watch)
+# Website Down Checker (Bat Watch)
 
 A simple Go-based website monitoring tool that checks a website URL and sends an email alert when the website is DOWN or when it recovers.
 
@@ -25,9 +25,6 @@ Website_Down_Checker/
 │ ├── jsonData.go
 │ ├── data.json
 
-yaml
-Copy code
-
 ---
 
 ## ⚙️ How It Works
@@ -40,48 +37,47 @@ Copy code
 - Makes request:
   ```go
   http.Get(URL)
-Reads last status + count from data.json
 
-If response code stays same → increments count
+- Reads last status + count from data.json
 
-If count reaches 2 → triggers email alert
+- If response code stays same → increments count
 
-Saves current status back into data.json
+- If count reaches 2 → triggers email alert
 
-3. files/sendMail.go
-Reads SMTP settings from .env
+- Saves current status back into data.json
 
-Sends email alert using SMTP
+### 3. files/sendMail.go
+- Reads SMTP settings from .env
 
-Uses HTML email (Netflix-style theme)
+- Sends email alert using SMTP
 
-4. files/jsonData.go
-Updates data.json with:
+- Uses HTML email (Netflix-style theme)
 
-LastStatus
+### 4. files/jsonData.go
+- Updates data.json with:
 
-Count
+- LastStatus
 
-🧾 Required data.json file
+- Count
+
+## 🧾 Required data.json file
 Create a file inside files/ folder:
 
 📌 Website_Down_Checker/files/data.json
 
-json
-Copy code
+```bash
 {
   "Web": {
     "LastStatus": "200",
     "Count": "0"
   }
 }
-🔑 .env File Setup
+```
+## 🔑 .env File Setup
 Create a .env file in project root:
 
 📌 Website_Down_Checker/.env
 
-env
-Copy code
 # Website URL to monitor
 URL=https://example.com
 
@@ -106,50 +102,34 @@ Use app password in SMTP_PASSWORD
 
 ▶️ How To Run
 From root directory:
-
-bash
-Copy code
+```bash
 go run main.go
 Or build:
-
-bash
-Copy code
+```
+```bash
 go build -o batwatch
 ./batwatch
-🔁 Running Every Minute (Cron Example)
+```
+## 🔁 Running Every Minute (Cron Example)
 To run every 1 minute:
 
-bash
-Copy code
+```bash
 crontab -e
 Add:
-
-bash
-Copy code
 * * * * * /path/to/batwatch >> /var/log/batwatch.log 2>&1
-✅ Expected Behaviour
-If website is stable (200 always) → no spam
+```
+## ✅ Expected Behaviour
+- If website is stable (200 always) → no spam
 
-If website becomes DOWN and stays down for 2 checks → sends email
+- If website becomes DOWN and stays down for 2 checks → sends email
 
-If it recovers and stays stable for 2 checks → sends recovery email (based on status transitions logic)
+- If it recovers and stays stable for 2 checks → sends recovery email (based on status transitions logic)
 
-📌 Future Improvements (Optional)
-Retry logic before marking DOWN
-
-Add timeout & custom HTTP client
-
-Support multiple URLs
-
-Telegram/Discord alerts
-
-Persistent logs
+## 📌 Future Improvements
+Working on it...
 
 Author
 Aniket Bhardwaj
 Project: Bat Watch
-
-yaml
-Copy code
 
 ---
