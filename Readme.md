@@ -66,29 +66,30 @@ Create a .env file in project root:
 
 📌 Website_Down_Checker/.env
 
-### Website URL to monitor
-URL=https://example.com
+### `Website URL to monitor`
+- URL=https://example.com
 
-### SMTP Server Details
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
+### `SMTP Server Details`
+- SMTP_HOST=smtp.gmail.com
+- SMTP_PORT=587
 
-### Email Credentials
-SMTP_FROM=your-email@gmail.com
-SMTP_PASSWORD=your-app-password
+### `Email Credentials`
+- SMTP_FROM=your-email@gmail.com
+- SMTP_PASSWORD=your-app-password
 
-### Receiver Email
-SMTP_TO=receiver-email@gmail.com
-⚠️ Gmail SMTP Note
+### `Receiver Email`
+- SMTP_TO=receiver-email@gmail.com
+
+`⚠️ Gmail SMTP Note`
 If you're using Gmail:
 
-Enable 2-step verification
+- Enable 2-step verification
 
-Generate an App Password
+- Generate an App Password
 
-Use app password in SMTP_PASSWORD
+- Use app password in SMTP_PASSWORD
 
-▶️ How To Run
+## ▶️ How To Run
 From root directory:
 ```bash
 go run main.go
@@ -115,6 +116,9 @@ Add:
 
 ## 📌 Future Improvements
 Working on it...
+
+- Will be creating a website that would let users add their website links and get alert if their website is down for 15 minutes(check every 5 minutes/3 cronjobs).
+
 
 ```bash
 Author
