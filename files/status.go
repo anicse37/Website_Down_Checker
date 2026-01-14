@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"time"
 )
 
 func CheckStatus(URL string) {
@@ -36,6 +37,7 @@ func CheckStatus(URL string) {
 	} else {
 		fmt.Println("Invalid Data")
 	}
+	fmt.Println(time.Now().Local().Format("01/02/2006 15:04"), "|| Status Code:", ResponseCode, "|| Count:", CountInt)
 }
 
 func LastStatus() (JsonData, int, int, error) {
