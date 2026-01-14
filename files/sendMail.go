@@ -19,37 +19,34 @@ func SendMail(ResponseCode int) {
 	Message := []byte{}
 	smtpHost, smtpPort, smtpFrom, smtpTo, smtpPassword := GetSMTPData()
 	if ResponseCode == 200 {
-		Message = []byte("" +
-			`<!DOCTYPE html>
-			<html>
-<body style="background-color:#0d0d0d; color:#e50914; font-family:Arial, sans-serif; padding:20px;">
-<div style="text-align:center;">
-<h1 style="color:#e50914; margin-top:10px;">$title</h1>
-</div>
-<div style="background-color:#1a1a1a; padding:20px; border-radius:10px; box-shadow:0 0 10px #e50914;">
-<p><strong style="color:#fff;">Site:</strong> <span style="color:#e50914;">Recovered</span></p>
-<div style="text-align:center; margin-top:20px;">
-<p style="color:#777;">“Bat Watch”</p>
-</div>
-</body>
-</html>`)
+		body := "" +
+			"<!DOCTYPE html>" +
+			"<html><body>" +
+			"<h2>Website Recovered</h2>" +
+			"</body></html>"
+
+		Message = []byte(
+			"From: Ani <" + smtpFrom + ">\r\n" +
+				"To: <" + smtpTo + ">\r\n" +
+				"MIME-Version: 1.0\r\n" +
+				"Content-Type: text/html; charset=UTF-8\r\n" +
+				"\r\n" + body,
+		)
 
 	} else {
-		Message = []byte("" +
-			`<!DOCTYPE html>
-			<html>
-<body style="background-color:#0d0d0d; color:#e50914; font-family:Arial, sans-serif; padding:20px;">
-<div style="text-align:center;">
-<h1 style="color:#e50914; margin-top:10px;">$title</h1>
-</div>
-<div style="background-color:#1a1a1a; padding:20px; border-radius:10px; box-shadow:0 0 10px #e50914;">
-<p><strong style="color:#fff;">Site:</strong> <span style="color:#e50914;">Down</span></p>
-</div>
-<div style="text-align:center; margin-top:20px;">
-<p style="color:#777;">“Bat Watch”</p>
-</div>
-</body>
-</html>`)
+		body := "" +
+			"<!DOCTYPE html>" +
+			"<html><body>" +
+			"<h2>Website Down</h2>" +
+			"</body></html>"
+
+		Message = []byte(
+			"From: Ani <" + smtpFrom + ">\r\n" +
+				"To: <" + smtpTo + ">\r\n" +
+				"MIME-Version: 1.0\r\n" +
+				"Content-Type: text/html; charset=UTF-8\r\n" +
+				"\r\n" + body,
+		)
 	}
 
 	auth := smtp.PlainAuth("", smtpFrom, smtpPassword, smtpHost)
