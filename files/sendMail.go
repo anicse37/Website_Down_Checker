@@ -3,6 +3,7 @@ package files
 import (
 	"net/smtp"
 	"os"
+	"strconv"
 )
 
 func GetSMTPData() (string, string, string, string, string) {
@@ -16,6 +17,7 @@ func GetSMTPData() (string, string, string, string, string) {
 }
 
 func SendMail(ResponseCode int) {
+	ResponseCodeString := strconv.Itoa(ResponseCode)
 	Message := []byte{}
 	smtpHost, smtpPort, smtpFrom, smtpTo, smtpPassword := GetSMTPData()
 	if ResponseCode == 200 {
@@ -23,6 +25,7 @@ func SendMail(ResponseCode int) {
 			"<!DOCTYPE html>" +
 			"<html><body>" +
 			"<h2>Website Recovered</h2>" +
+			"<p>Status code:" + ResponseCodeString + "</p>" +
 			"</body></html>"
 
 		Message = []byte(
@@ -38,6 +41,7 @@ func SendMail(ResponseCode int) {
 			"<!DOCTYPE html>" +
 			"<html><body>" +
 			"<h2>Website Down</h2>" +
+			"<p>Status code:" + ResponseCodeString + "</p>" +
 			"</body></html>"
 
 		Message = []byte(
