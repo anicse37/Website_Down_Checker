@@ -126,3 +126,14 @@ Aniket Bhardwaj
 Project: Bat Watch
 ```
 ---
+<p align="center">
+  <strong>If I am working on it and it is not working...</strong>
+</p>
+
+<p align="center">
+  <img src="https://media1.tenor.com/m/OdkOqMhoeqMAAAAd/don-no1-nagarjuna.gif" width="280" />
+</p>
+
+<p align="center">
+  <strong>😎 It will work.</strong>
+</p>
